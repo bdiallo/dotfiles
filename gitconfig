@@ -1,0 +1,20 @@
+[user]
+	name = Jean-Hadrien Chabran
+	email = jh@chabran.fr
+[alias]
+	co = checkout
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[core]
+	excludesfile = /Users/jh/.gitignore
+	editor = mate -w
+	autocrlf = input
+[apply]
+	whitespace = nowarn
+[format]
+	pretty = %C(yellow)%h%Creset %s %C(red)(%cr)%Creset
+[github]
+	user = jhchabran
+	token = 997c2884641180da4d2ffecbd80fe8f3
