@@ -1,7 +1,7 @@
 if [[ -n $SSH_CONNECTION ]]; then
   export PS1='%m:%3~$(git_info_for_prompt)%# '
 else
-  export PS1='%3~[$(~/.rvm/bin/rvm-prompt)]$(git_info_for_prompt)%# '
+  export PS1='%{$fg[green]%}%3~%{$fg[red]%} [$(~/.rvm/bin/rvm-prompt)]%{$reset_color%}%{$fg[yellow]%} $(git_info_for_prompt)%{$reset_color%} %# '
 fi
 
 export EDITOR='mate -w'
@@ -10,6 +10,7 @@ export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
 
 fpath=(~/.zsh/functions $fpath)
 
+autoload -U colors && colors
 autoload -U ~/.zsh/functions/*(:t)
 
 HISTFILE=~/.zsh_history
