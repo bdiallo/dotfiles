@@ -28,6 +28,11 @@ alias tlog='tail -f log/development.log'
 alias scaffold='script/generate nifty_scaffold'
 alias migrate='rake db:migrate db:test:clone'
 alias rst='touch tmp/restart.txt'
+alias bx='bundle exec'
 
 # commands starting with % for pasting from web
 alias %=' '
+
+# mipise
+alias import_last_backup_mipise='powder stop && rake db:drop && rake db:create && pg_restore --verbose --clean --no-acl --no-owner -d mipise_development tmp/latest.dump; rake db:migrate; rake parallel:prepare; powder start'
+alias import_prod_mipise='heroku pgbackups:capture --expire --remote heroku && curl -o tmp/latest.dump `heroku pgbackups:url --remote heroku` && import_last_backup_mipise'
